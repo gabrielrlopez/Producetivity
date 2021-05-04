@@ -20,4 +20,16 @@ producetivityDb.all = () => {
   });
 };
 
+producetivityDb.filter = (searchTerm) => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM producetivity.produce WHERE product LIKE "%${searchTerm}%"`,
+      (err, results) => {
+        if (err) return reject(err);
+        return resolve(results);
+      }
+    );
+  });
+};
+
 module.exports = producetivityDb;
