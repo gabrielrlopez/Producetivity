@@ -4,7 +4,6 @@ const router = express.Router();
 
 //Get all produce items
 router.get("/", async (req, res, next) => {
-  console.log("hello");
   try {
     let results = await db.all();
     res.json(results);

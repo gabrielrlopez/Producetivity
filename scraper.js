@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
 const fs = require("fs");
-// const writeStream = fs.createWriteStream("produce.csv");
+const writeStream = fs.createWriteStream("produce.csv");
 
 // Scrape all 12 pages of King Soopers produce items
 let allJSONdata = [];
@@ -38,6 +38,7 @@ const scrapeData = () => {
           // writeStream.write(`${product}, ${weight}, ${picture} \n`);
 
           tempData = {
+            id,
             product,
             weight,
             picture,
