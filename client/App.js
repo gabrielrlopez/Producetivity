@@ -1,20 +1,26 @@
+import "react-native-gesture-handler";
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import {
-  useFonts,
-  Roboto_400Regular,
-  Roboto_400Regular_Italic,
-} from "@expo-google-fonts/roboto";
-import AppLoading from "expo-app-loading";
+import NameCart from "./app/screens/NameCart";
 
-export default function App() {
-  let [fontsLoaded] = useFonts({
-    Roboto_400Regular,
-    Roboto_400Regular_Italic,
-  });
+const Stack = createStackNavigator();
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-  return <WelcomeScreen />;
-}
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Name Your First Cart" component={NameCart} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;

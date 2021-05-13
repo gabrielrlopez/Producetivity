@@ -8,7 +8,7 @@ import {
   Button,
 } from "react-native";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <ImageBackground
       style={styles.background}
@@ -24,7 +24,11 @@ const WelcomeScreen = () => {
         </Text>
       </View>
       <View style={styles.getStartedButton}>
-        <Button color="#fff" title="Create a new cart" />
+        <Button
+          color="#fff"
+          title="Create a new cart"
+          onPress={() => navigation.navigate("Name Your First Cart")}
+        />
       </View>
     </ImageBackground>
   );
@@ -47,7 +51,6 @@ const styles = StyleSheet.create({
   },
   slogan: {
     color: "#fff",
-    fontFamily: "Roboto_400Regular_Italic",
     fontSize: 18,
   },
   getStartedButton: {
@@ -55,7 +58,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 70,
     backgroundColor: "#66cc33",
-    fontFamily: "Roboto_400Regular",
   },
 });
 
